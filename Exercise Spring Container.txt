@@ -1,0 +1,25 @@
+/*Q1*/
+output: hey from message1  // one possible
+
+/*Q2*/
+output: hey from message2  // one possible
+
+/*Q3*/
+output: hey from message1  //fist possible
+output: hey from message3  //second possible
+output: hey from message2 // third possible because @Qualifier("2") depend on @Qualifier("3")
+
+/*Q4*/
+output: hey from message1 //first possible
+output: hey from MainController //second possible because depend on @Qualifier("1")
+output: hey from message3 //third possible
+output: hey from message2 // fourth possible because @Qualifier("2") depend on @Qualifier("3")
+
+/*Q5*/
+output: hey from message3 // first possible because  @Qualifier("1") have parameter(main controller)and main controller have  @Qualifier("2") and @Qualifier("2") doesn't execute before @Qualifier("3") is executed.
+
+output: hey from message2 //second possible  because depend on @Qualifier("3")
+output: hey from MainController //third possible because depend on @Qualifier("2")
+output: hey from message1 // fourth possible @Qualifier("1") no Qualifier dependent
+
+
